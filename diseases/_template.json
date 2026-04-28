@@ -1,0 +1,42 @@
+{
+  "id": "your-disease-id",
+  "title": "Disease Name",
+  "subtitle": "An Anatomical Study",
+  "course": "Bio 40A",
+  "bodyFigure": "male-anterior",
+  "diagnosticFinding": {
+    "name": "name of the diagnostic finding",
+    "desc": "what the finding is",
+    "regions": ["region-id-1", "region-id-2"]
+  },
+  "regionLabels": {
+    "region-id-1": "Human-readable region name",
+    "region-id-2": "Another region"
+  },
+  "symptomGroups": [
+    {
+      "id": "group-id",
+      "title": "Symptom Group Title",
+      "desc": "one-line description shown under the title",
+      "regions": ["region-id-1"],
+      "terms": [
+        { "name": "term name", "desc": "why this term matters for this symptom" },
+        { "name": "another term", "desc": "..." }
+      ]
+    }
+  ],
+  "histologyPlates": [
+    {
+      "id": "plate-id",
+      "number": "II.A",
+      "title": "Plate Title",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/<File>.png",
+      "imageAlt": "Description of image for screen readers",
+      "fallbackText": "commons.wikimedia.org/wiki/File:<File>.png",
+      "caption": "What the student should notice on this plate.",
+      "attribution": "Image attribution. Public domain.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:<File>.png",
+      "terms": ["term name", "another term"]
+    }
+  ]
+}

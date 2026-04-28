@@ -1,0 +1,61 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-serif);
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(139, 116, 86, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(139, 116, 86, 0.06) 0%, transparent 40%);
+  padding: var(--space-xl) var(--space-lg);
+}
+
+header {
+  max-width: var(--max-width);
+  margin: 0 auto var(--space-lg);
+  border-bottom: 2px double var(--rule);
+  padding-bottom: var(--space-lg);
+  position: relative;
+}
+
+header::after {
+  content: "BIO 40A";
+  position: absolute;
+  top: var(--space-sm);
+  right: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--muted);
+}
+
+h1 {
+  font-size: 38px;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: var(--space-sm);
+}
+
+.footer-note {
+  max-width: var(--max-width);
+  margin: var(--space-xl) auto 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--rule);
+}

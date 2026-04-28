@@ -1,0 +1,11 @@
+{
+  "diseases": [
+    {
+      "id": "at-totalis",
+      "title": "Alopecia Areata Totalis",
+      "subtitle": "An Anatomical Study · 40 Histological Terms in Clinical Context",
+      "termCount": 40,
+      "tissueDomain": "epithelial / connective"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease Study — Bio 40A</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/plates.css">
+</head>
+<body>
+
+<header>
+  <h1 id="disease-title">Loading…</h1>
+  <div class="subtitle" id="disease-subtitle"></div>
+</header>
+
+<main id="study-root">
+  <div class="panel" style="max-width: 700px; margin: 0 auto;">
+    <div class="panel__content">
+      <div class="panel__label">Scaffold checkpoint</div>
+      <p style="font-style: italic; line-height: 1.5; margin-top: 8px;">
+        Disease data loaded successfully. Body chart, info panel, and histology
+        views are ported in the next pass — see <code>js/views/*</code>.
+      </p>
+      <div id="data-summary" style="margin-top: 16px;"></div>
+    </div>
+  </div>
+</main>
+
+<div class="footer-note">D. Sheffield · Bio 40A · <a href="index.html" style="color: var(--muted);">Back to Disease Index</a></div>
+
+<script type="module">
+  import { loadDisease } from './js/data/loader.js';
+  import { state } from './js/state.js';
+
+  const params = new URLSearchParams(location.search);
+  const id = params.get('disease') ?? 'at-totalis';
+
+  loadDisease(id).then(disease => {
+    state.set({ disease });
+    document.getElementById('disease-title').textContent = disease.title;
+    document.getElementById('disease-subtitle').textContent = disease.subtitle;
+    document.title = `${disease.title} — Bio 40A`;
+    const summary = document.getElementById('data-summary');
+    summary.innerHTML = `
+      <div class="panel__label">Loaded</div>
+      <div style="font-family: var(--font-mono); font-size: 11px; line-height: 1.7; color: var(--muted);">
+        ${disease.symptomGroups.length} symptom groups ·
+        ${disease.allTerms.length} terms ·
+        ${disease.histologyPlates.length} histology plates ·
+        ${Object.keys(disease.regionLabels).length} body regions
+      </div>`;
+  }).catch(err => {
+    document.getElementById('disease-title').textContent = 'Error';
+    document.getElementById('study-root').innerHTML = `
+      <div class="panel" style="max-width: 700px; margin: 0 auto;">
+        <div class="panel__content">
+          <div class="panel__label">Failed to load disease "${id}"</div>
+          <pre style="font-family: var(--font-mono); font-size: 11px; white-space: pre-wrap; margin-top: 8px;">${err.message}</pre>
+        </div>
+      </div>`;
+  });
+</script>
+
+</body>
+</html>

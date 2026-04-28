@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alopecia Areata Totalis — Anatomical Study Chart</title>
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --paper: #ebe5d6;
+    --ink: #2a2520;
+    --rule: #8a7d6a;
+    --accent: #b03a2e;
+    --accent-soft: #d97757;
+    --highlight: rgba(176, 58, 46, 0.18);
+    --muted: #6b5d4a;
+    --shadow: rgba(42, 37, 32, 0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(139, 116, 86, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 80% 90%, rgba(139, 116, 86, 0.06) 0%, transparent 40%);
+    padding: 24px 16px;
+  }
+
+  header {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    border-bottom: 2px double var(--rule);
+    padding-bottom: 16px;
+    position: relative;
+  }
+
+  header::after {
+    content: "BIO 40A";
+    position: absolute;
+    top: 8px;
+    right: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-size: 38px;
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.5px;
+    line-height: 1;
+  }
+
+  .subtitle {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* Tabs */
+  .tabs {
+    max-width: 1400px;
+    margin: 0 auto 16px;
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tab {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-bottom: none;
+    color: var(--muted);
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    transition: all 0.15s ease;
+  }
+
+  .tab:hover { color: var(--ink); }
+
+  .tab.active {
+    background: var(--paper);
+    color: var(--ink);
+    border-bottom: 1px solid var(--paper);
+    z-index: 2;
+    position: relative;
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* Body chart layout */
+  .layout {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .figure-panel {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 20px;
+    box-shadow: 0 1px 3px var(--shadow);
+    position: relative;
+  }
+
+  .figure-panel::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .panel-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  svg.body { width: 100%; height: auto; display: block; }
+
+  .body-region {
+    fill: #d6cdb8;
+    stroke: var(--ink);
+    stroke-width: 0.8;
+    cursor: pointer;
+    transition: fill 0.2s ease;
+  }
+  .body-region:hover { fill: var(--accent-soft); }
+  .body-region.active { fill: var(--accent); }
+
+  .body-outline { fill: none; stroke: var(--ink); stroke-width: 1.2; }
+  .body-detail { fill: none; stroke: var(--ink); stroke-width: 0.6; opacity: 0.5; }
+  .label-line { stroke: var(--ink); stroke-width: 0.5; }
+  .label-text {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    fill: var(--ink);
+    letter-spacing: 0.5px;
+  }
+
+  .right-panel { display: flex; flex-direction: column; gap: 16px; }
+
+  .controls {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .mode-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .mode-btn:hover { background: var(--ink); color: var(--paper); }
+  .mode-btn.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+  .reset-btn {
+    margin-left: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .info-panel {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 20px;
+    flex: 1;
+    min-height: 400px;
+    position: relative;
+  }
+  .info-panel::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .info-content { position: relative; z-index: 1; }
+
+  .info-header {
+    font-size: 24px;
+    font-style: italic;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  .info-meta {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .term-list { display: flex; flex-direction: column; gap: 10px; }
+
+  .term-item {
+    border-left: 2px solid var(--rule);
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .term-item:hover { border-left-color: var(--accent); background: var(--highlight); }
+  .term-item.active { border-left-color: var(--accent); border-left-width: 4px; background: var(--highlight); }
+
+  .term-name { font-size: 17px; font-weight: 600; }
+  .term-desc { font-size: 14px; color: var(--muted); font-style: italic; margin-top: 2px; }
+  .term-desc.hidden { visibility: hidden; }
+
+  .quiz-prompt {
+    background: var(--bg);
+    border: 1px dashed var(--rule);
+    padding: 16px;
+    margin-bottom: 16px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .empty-state {
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+    padding: 40px 20px;
+    font-size: 16px;
+  }
+
+  .empty-state::before {
+    content: "❦";
+    display: block;
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: var(--rule);
+  }
+
+  .all-terms {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+  }
+  @media (max-width: 600px) { .all-terms { grid-template-columns: 1fr; } }
+
+  .term-chip {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 6px 10px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: left;
+  }
+  .term-chip:hover { background: var(--accent-soft); color: var(--paper); border-color: var(--accent); }
+  .term-chip.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--rule);
+    letter-spacing: 1px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .legend-swatch { width: 12px; height: 12px; border: 1px solid var(--ink); }
+
+  /* Histology Plates */
+  .plates-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 24px;
+  }
+
+  .plate {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 16px;
+    position: relative;
+  }
+  .plate::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .plate-content { position: relative; z-index: 1; }
+
+  .plate-number {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .plate-title {
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 4px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+  }
+
+  .plate-image-frame {
+    background: #fff;
+    border: 1px solid var(--ink);
+    padding: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .plate-image-frame img {
+    max-width: 100%;
+    max-height: 380px;
+    height: auto;
+    display: block;
+  }
+
+  .image-fallback {
+    display: none;
+    color: var(--muted);
+    font-style: italic;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .plate-caption {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .plate-attribution {
+    font-family: 'Courier New', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    border-top: 1px solid var(--rule);
+    padding-top: 8px;
+    margin-top: 12px;
+  }
+  .plate-attribution a { color: var(--muted); }
+
+  .plate-terms {
+    margin-top: 12px;
+  }
+
+  .plate-terms-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .plate-term {
+    display: inline-block;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    padding: 4px 8px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .plate-term:hover {
+    background: var(--accent-soft);
+    color: var(--paper);
+    border-color: var(--accent);
+  }
+
+  .footer-note {
+    max-width: 1400px;
+    margin: 24px auto 0;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Modal for term details from plates */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42, 37, 32, 0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.active { display: flex; }
+
+  .modal {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 24px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+  }
+  .modal::before {
+    content: "";
+    position: absolute;
+    top: 6px; left: 6px; right: 6px; bottom: 6px;
+    border: 1px solid var(--rule);
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  .modal-content { position: relative; z-index: 1; }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--muted);
+    z-index: 2;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Alopecia Areata Totalis</h1>
+  <div class="subtitle">An Anatomical Study · 40 Histological Terms in Clinical Context</div>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-tab="body">Plate I — Body Chart</button>
+  <button class="tab" data-tab="histology">Plate II — Histology</button>
+</div>
+
+<!-- BODY CHART TAB -->
+<div class="tab-panel active" id="panel-body">
+  <div class="layout">
+    <div class="figure-panel">
+      <div class="panel-label">Fig. 1 — Regions of Involvement</div>
+      <svg class="body" viewBox="0 0 360 600" xmlns="http://www.w3.org/2000/svg">
+        <ellipse class="body-outline" cx="180" cy="55" rx="38" ry="46"/>
+        <path class="body-outline" d="M 162 95 L 158 115 L 202 115 L 198 95"/>
+        <path class="body-outline" d="M 158 115 L 120 135 L 110 200 L 115 280 L 130 360 L 145 380 L 215 380 L 230 360 L 245 280 L 250 200 L 240 135 L 202 115 Z"/>
+        <path class="body-outline" d="M 120 135 L 95 175 L 80 240 L 75 310 L 80 360 L 95 365 L 100 320 L 110 245 L 120 200"/>
+        <path class="body-outline" d="M 240 135 L 265 175 L 280 240 L 285 310 L 280 360 L 265 365 L 260 320 L 250 245 L 240 200"/>
+        <path class="body-outline" d="M 145 380 L 138 460 L 135 540 L 145 580 L 165 580 L 170 540 L 175 460 L 178 380"/>
+        <path class="body-outline" d="M 215 380 L 222 460 L 225 540 L 215 580 L 195 580 L 190 540 L 185 460 L 182 380"/>
+        <path class="body-detail" d="M 165 50 L 170 50"/>
+        <path class="body-detail" d="M 190 50 L 195 50"/>
+        <path class="body-detail" d="M 178 65 L 182 65"/>
+        <path class="body-detail" d="M 170 78 Q 180 82 190 78"/>
+
+        <path class="body-region" data-region="scalp" d="M 145 25 Q 180 5 215 25 Q 220 45 215 55 L 145 55 Q 140 45 145 25 Z"/>
+        <path class="body-region" data-region="eyebrows" d="M 158 45 Q 168 42 178 45 L 178 49 Q 168 46 158 49 Z M 182 45 Q 192 42 202 45 L 202 49 Q 192 46 182 49 Z"/>
+        <path class="body-region" data-region="eyelashes" d="M 160 52 L 175 52 L 175 56 L 160 56 Z M 185 52 L 200 52 L 200 56 L 185 56 Z"/>
+        <path class="body-region" data-region="vibrissae" d="M 175 67 L 185 67 L 187 76 L 173 76 Z"/>
+        <ellipse class="body-region" data-region="ears" cx="142" cy="60" rx="6" ry="9"/>
+        <ellipse class="body-region" data-region="ears" cx="218" cy="60" rx="6" ry="9"/>
+        <circle class="body-region" data-region="lymph" cx="155" cy="108" r="4"/>
+        <circle class="body-region" data-region="lymph" cx="205" cy="108" r="4"/>
+        <path class="body-region" data-region="thyroid" d="M 170 100 Q 180 105 190 100 L 192 110 Q 180 113 168 110 Z"/>
+        <ellipse class="body-region" data-region="axilla" cx="125" cy="155" rx="10" ry="14"/>
+        <ellipse class="body-region" data-region="axilla" cx="235" cy="155" rx="10" ry="14"/>
+        <path class="body-region" data-region="body-skin" d="M 145 145 L 215 145 L 215 220 L 145 220 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 145 225 L 215 225 L 215 290 L 145 290 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 85 245 L 105 245 L 100 320 L 80 320 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 255 245 L 275 245 L 280 320 L 260 320 Z"/>
+        <path class="body-region" data-region="pubic" d="M 158 320 L 202 320 L 200 360 L 160 360 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 145 390 L 178 390 L 175 470 L 138 470 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 182 390 L 215 390 L 222 470 L 185 470 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 138 480 L 175 480 L 168 560 L 140 560 Z"/>
+        <path class="body-region" data-region="body-skin" d="M 185 480 L 222 480 L 220 560 L 192 560 Z"/>
+
+        <line class="label-line" x1="180" y1="20" x2="180" y2="0"/>
+        <text class="label-text" x="155" y="-2" text-anchor="start">SCALP</text>
+        <line class="label-line" x1="178" y1="46" x2="80" y2="40"/>
+        <text class="label-text" x="40" y="38">BROWS</text>
+        <line class="label-line" x1="178" y1="54" x2="80" y2="58"/>
+        <text class="label-text" x="40" y="60">LASHES</text>
+        <line class="label-line" x1="180" y1="72" x2="80" y2="76"/>
+        <text class="label-text" x="20" y="78">VIBRISSAE</text>
+        <line class="label-line" x1="218" y1="60" x2="290" y2="58"/>
+        <text class="label-text" x="295" y="60">EAR CANAL</text>
+        <line class="label-line" x1="155" y1="108" x2="80" y2="108"/>
+        <text class="label-text" x="20" y="110">LYMPH NODES</text>
+        <line class="label-line" x1="180" y1="106" x2="290" y2="100"/>
+        <text class="label-text" x="295" y="102">THYROID</text>
+        <line class="label-line" x1="125" y1="155" x2="50" y2="158"/>
+        <text class="label-text" x="20" y="160">AXILLA</text>
+        <line class="label-line" x1="180" y1="180" x2="290" y2="180"/>
+        <text class="label-text" x="295" y="182">BODY SKIN</text>
+        <line class="label-line" x1="180" y1="340" x2="290" y2="340"/>
+        <text class="label-text" x="295" y="342">PUBIC</text>
+      </svg>
+
+      <div class="legend">
+        <div class="legend-item"><span class="legend-swatch" style="background:#d6cdb8"></span>REGION</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:#d97757"></span>HOVER</div>
+        <div class="legend-item"><span class="legend-swatch" style="background:#b03a2e"></span>SELECTED</div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="controls">
+        <button class="mode-btn active" data-mode="explore">Explore</button>
+        <button class="mode-btn" data-mode="quiz">Quiz</button>
+        <button class="reset-btn" id="reset">Reset</button>
+      </div>
+
+      <div class="info-panel">
+        <div class="info-content" id="info-content">
+          <div class="empty-state">
+            Click any anatomical region on the figure<br>
+            or select a term below to see connections.
+          </div>
+          <div style="margin-top: 24px;">
+            <div class="info-meta">All 40 Terms · Click to highlight regions</div>
+            <div class="all-terms" id="all-terms"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTOLOGY PLATES TAB -->
+<div class="tab-panel" id="panel-histology">
+  <div class="plates-grid">
+
+    <!-- Plate II.A — Hair Follicle -->
+    <div class="plate">
+      <div class="plate-content">
+        <div class="plate-number">Plate II.A · Public Domain · Gray's Anatomy 1918</div>
+        <div class="plate-title">Hair Follicle &amp; Pilosebaceous Unit</div>
+        <div class="plate-image-frame">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gray944.png"
+               alt="Cross-section of skin showing hair follicle, sebaceous gland, and arrector pili muscle"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="image-fallback">Image failed to load.<br>Visit: commons.wikimedia.org/wiki/File:Gray944.png</div>
+        </div>
+        <div class="plate-caption">
+          The autoimmune target itself. The bulb (matrix), papilla, inner and outer root sheaths, and surrounding glands form the pilosebaceous unit. CD8⁺ T cells breach the basal lamina to attack matrix cells. Note the arrector pili (smooth muscle) and sebaceous gland (holocrine) attached to the follicle.
+        </div>
+        <div class="plate-terms">
+          <div class="plate-terms-label">Terms visible in this plate</div>
+          <span class="plate-term" data-term="ectoderm">ectoderm</span>
+          <span class="plate-term" data-term="epithelial tissue">epithelial tissue</span>
+          <span class="plate-term" data-term="matrix">matrix</span>
+          <span class="plate-term" data-term="mesoderm">mesoderm</span>
+          <span class="plate-term" data-term="basal lamina">basal lamina</span>
+          <span class="plate-term" data-term="basement membrane">basement membrane</span>
+          <span class="plate-term" data-term="anchoring junction">anchoring junction</span>
+          <span class="plate-term" data-term="apical">apical</span>
+          <span class="plate-term" data-term="stratified squamous epithelium">stratified squamous epithelium</span>
+          <span class="plate-term" data-term="cutaneous membrane">cutaneous membrane</span>
+          <span class="plate-term" data-term="exocrine gland">exocrine gland</span>
+          <span class="plate-term" data-term="holocrine secretion">holocrine secretion</span>
+          <span class="plate-term" data-term="apocrine secretion">apocrine secretion</span>
+          <span class="plate-term" data-term="merocrine secretion">merocrine secretion</span>
+          <span class="plate-term" data-term="smooth muscle">smooth muscle</span>
+          <span class="plate-term" data-term="neuron">neuron</span>
+          <span class="plate-term" data-term="nervous tissue">nervous tissue</span>
+          <span class="plate-term" data-term="adipose tissue">adipose tissue</span>
+          <span class="plate-term" data-term="adipocytes">adipocytes</span>
+        </div>
+        <div class="plate-attribution">
+          Henry Vandyke Carter, <em>Gray's Anatomy</em> (1918), Plate 944. Public domain.<br>
+          Source: <a href="https://commons.wikimedia.org/wiki/File:Gray944.png" target="_blank">Wikimedia Commons</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plate II.B — Skin Layers -->
+    <div class="plate">
+      <div class="plate-content">
+        <div class="plate-number">Plate II.B · Public Domain · Gray's Anatomy 1918</div>
+        <div class="plate-title">Vertical Section of Skin (Magnified)</div>
+        <div class="plate-image-frame">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gray940.png"
+               alt="Vertical section of skin showing epidermis, dermis, and underlying connective tissue"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="image-fallback">Image failed to load.<br>Visit: commons.wikimedia.org/wiki/File:Gray940.png</div>
+        </div>
+        <div class="plate-caption">
+          The cutaneous membrane in vertical section. Stratified squamous epithelium of the epidermis sits on the basement membrane; the dermis below contains areolar and dense connective tissue, with collagen, elastic, and reticular fibers in ground substance. Endothelium-lined vessels deliver immune cells.
+        </div>
+        <div class="plate-terms">
+          <div class="plate-terms-label">Terms visible in this plate</div>
+          <span class="plate-term" data-term="cutaneous membrane">cutaneous membrane</span>
+          <span class="plate-term" data-term="stratified squamous epithelium">stratified squamous epithelium</span>
+          <span class="plate-term" data-term="basement membrane">basement membrane</span>
+          <span class="plate-term" data-term="basal lamina">basal lamina</span>
+          <span class="plate-term" data-term="connective tissue">connective tissue</span>
+          <span class="plate-term" data-term="dense connective tissue (irregular/regular)">dense connective tissue (irreg./reg.)</span>
+          <span class="plate-term" data-term="areolar tissue">areolar tissue</span>
+          <span class="plate-term" data-term="loose connective tissue">loose connective tissue</span>
+          <span class="plate-term" data-term="collagen fiber">collagen fiber</span>
+          <span class="plate-term" data-term="elastic fiber">elastic fiber</span>
+          <span class="plate-term" data-term="reticular fiber">reticular fiber</span>
+          <span class="plate-term" data-term="ground substance">ground substance</span>
+          <span class="plate-term" data-term="fibroblast">fibroblast</span>
+          <span class="plate-term" data-term="endothelium">endothelium</span>
+          <span class="plate-term" data-term="fluid connective tissue">fluid connective tissue</span>
+          <span class="plate-term" data-term="adipose tissue">adipose tissue</span>
+        </div>
+        <div class="plate-attribution">
+          Henry Vandyke Carter, <em>Gray's Anatomy</em> (1918). Public domain.<br>
+          Source: <a href="https://commons.wikimedia.org/wiki/File:Gray940.png" target="_blank">Wikimedia Commons</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plate II.C — Lymph Node -->
+    <div class="plate">
+      <div class="plate-content">
+        <div class="plate-number">Plate II.C · Public Domain · Gray's Anatomy 1918</div>
+        <div class="plate-title">Lymph Node — Reticular Architecture</div>
+        <div class="plate-image-frame">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gray598.png"
+               alt="Diagram of a lymph node showing cortex, medulla, and reticular structure"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="image-fallback">Image failed to load.<br>Visit: commons.wikimedia.org/wiki/File:Gray598.png</div>
+        </div>
+        <div class="plate-caption">
+          Where autoreactive T cells are primed before trafficking to the follicle. The node's reticular tissue (a network of reticular fibers) supports germinal centers in the cortex; tender posterior cervical, occipital, axillary, and inguinal nodes during AT flares reflect activity here.
+        </div>
+        <div class="plate-terms">
+          <div class="plate-terms-label">Terms visible in this plate</div>
+          <span class="plate-term" data-term="reticular tissue">reticular tissue</span>
+          <span class="plate-term" data-term="reticular fiber">reticular fiber</span>
+          <span class="plate-term" data-term="connective tissue">connective tissue</span>
+          <span class="plate-term" data-term="endothelium">endothelium</span>
+          <span class="plate-term" data-term="fluid connective tissue">fluid connective tissue</span>
+        </div>
+        <div class="plate-attribution">
+          Henry Vandyke Carter, <em>Gray's Anatomy</em> (1918). Public domain.<br>
+          Source: <a href="https://commons.wikimedia.org/wiki/File:Gray598.png" target="_blank">Wikimedia Commons</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plate II.D — Thyroid -->
+    <div class="plate">
+      <div class="plate-content">
+        <div class="plate-number">Plate II.D · Public Domain · Gray's Anatomy 1918</div>
+        <div class="plate-title">Thyroid Gland — Anterior View</div>
+        <div class="plate-image-frame">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gray1174.png"
+               alt="Anterior view of the thyroid gland showing lobes and isthmus"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="image-fallback">Image failed to load.<br>Visit: commons.wikimedia.org/wiki/File:Gray1174.png</div>
+        </div>
+        <div class="plate-caption">
+          Strong autoimmune comorbidity with AT — Hashimoto's thyroiditis and Graves' disease co-occur in 8–28% of cases. Clinical workup for AT routinely screens TSH. The thyroid is an endocrine gland (ductless, secreting directly into blood), distinguishing it from the exocrine glands of the pilosebaceous unit.
+        </div>
+        <div class="plate-terms">
+          <div class="plate-terms-label">Terms visible in this plate</div>
+          <span class="plate-term" data-term="endocrine gland">endocrine gland</span>
+          <span class="plate-term" data-term="connective tissue">connective tissue</span>
+          <span class="plate-term" data-term="endothelium">endothelium</span>
+          <span class="plate-term" data-term="fluid connective tissue">fluid connective tissue</span>
+        </div>
+        <div class="plate-attribution">
+          Henry Vandyke Carter, <em>Gray's Anatomy</em> (1918). Public domain.<br>
+          Source: <a href="https://commons.wikimedia.org/wiki/File:Gray1174.png" target="_blank">Wikimedia Commons</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal for term details -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">×</button>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+</div>
+
+<div class="footer-note">D. Sheffield · Bio 40A Pre-Course Study · All Source Images: Public Domain (Gray's Anatomy, 1918)</div>
+
+<script>
+// =================== DATA ===================
+const symptomGroups = [
+  { id: "hairloss", title: "Total Body Hair Loss", desc: "Scalp, brows, lashes, body, vibrissae all gone",
+    regions: ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "axilla", "body-skin", "pubic"],
+    terms: [
+      { name: "ectoderm", desc: "follicles are ectoderm-derived; the autoimmune target" },
+      { name: "epithelial tissue", desc: "follicle is epithelial; what T cells attack" },
+      { name: "matrix", desc: "bulb matrix cells directly killed" },
+      { name: "apoptosis", desc: "follicles forced into early catagen" },
+      { name: "mesoderm", desc: "papilla–follicle signaling disrupted" },
+      { name: "atrophy", desc: "miniaturization without scarring" }
+    ]},
+  { id: "borders", title: "Active Patch Borders", desc: "Easy epilation; tapered \"exclamation point\" hairs",
+    regions: ["scalp", "eyebrows", "body-skin"],
+    terms: [
+      { name: "basal lamina", desc: "follicular immune privilege barrier breached" },
+      { name: "basement membrane", desc: "T cells cross BM to reach the bulb" },
+      { name: "anchoring junction", desc: "desmosomes weaken; hairs slip out" },
+      { name: "apical", desc: "polarity lost; hairs taper" },
+      { name: "ground substance", desc: "ECM permits immune cell migration" }
+    ]},
+  { id: "inflammation", title: "Itch · Redness · Warmth · Tenderness", desc: "Active inflammation at affected sites",
+    regions: ["scalp", "eyebrows", "axilla", "body-skin", "pubic"],
+    terms: [
+      { name: "inflammation", desc: "peribulbar \"swarm of bees\" infiltrate" },
+      { name: "histamine", desc: "mast cell-driven itch" },
+      { name: "vasodilation", desc: "pink, warm patches" },
+      { name: "endothelium", desc: "adhesion molecules let T cells exit vessels" },
+      { name: "fluid connective tissue", desc: "blood delivers autoreactive T cells" },
+      { name: "areolar tissue", desc: "papillary dermis traps lymphocytes" },
+      { name: "loose connective tissue", desc: "perifollicular trafficking route" }
+    ]},
+  { id: "preserved", title: "Smooth, Non-Scarring Skin", desc: "Structural preservation enables future regrowth",
+    regions: ["scalp", "body-skin", "eyebrows"],
+    terms: [
+      { name: "collagen fiber", desc: "perifollicular sheath intact" },
+      { name: "elastic fiber", desc: "dermal elasticity preserved" },
+      { name: "reticular fiber", desc: "follicle ostia still visible" },
+      { name: "connective tissue", desc: "dermis structurally intact" },
+      { name: "dense connective tissue (irregular/regular)", desc: "no fibrotic replacement" }
+    ]},
+  { id: "regrowth", title: "Poor-Quality / White Regrowth", desc: "Fine vellus hairs, often depigmented",
+    regions: ["scalp", "eyebrows", "body-skin"],
+    terms: [
+      { name: "gap junction", desc: "matrix–papilla signaling impaired → white hairs" },
+      { name: "tight junction", desc: "IRS breakdown → brittle hairs" },
+      { name: "fibroblast", desc: "papilla fibroblasts lose signaling" },
+      { name: "adipocytes", desc: "stem cell signaling lost; regrowth delayed" },
+      { name: "adipose tissue", desc: "hair-cycle adipose rhythm disrupted" }
+    ]},
+  { id: "function", title: "Lost Protective / Sensory Function", desc: "Hair-dependent functions degraded body-wide",
+    regions: ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "body-skin"],
+    terms: [
+      { name: "cutaneous membrane", desc: "barrier and insulation reduced" },
+      { name: "stratified squamous epithelium", desc: "outer root sheath continuity gone" },
+      { name: "neuron", desc: "peri-follicular mechanoreceptors lose targets" },
+      { name: "nervous tissue", desc: "diminished light-touch detection" },
+      { name: "smooth muscle", desc: "arrector pili idle; no goosebumps" }
+    ]},
+  { id: "secretions", title: "Altered Secretions & Thermoregulation", desc: "Pilosebaceous unit dysfunction body-wide",
+    regions: ["scalp", "axilla", "pubic", "body-skin"],
+    terms: [
+      { name: "merocrine secretion", desc: "visible sweating; no hair to trap moisture" },
+      { name: "holocrine secretion", desc: "drier scalp/skin (sebum drop)" },
+      { name: "apocrine secretion", desc: "reduced body odor production" },
+      { name: "exocrine gland", desc: "pilosebaceous unit dysfunction" }
+    ]},
+  { id: "lymph", title: "Tender Lymph Nodes (Flares)", desc: "Regional drainage basins palpable",
+    regions: ["lymph", "axilla"],
+    terms: [{ name: "reticular tissue", desc: "lymph node stroma primes autoreactive T cells" }]},
+  { id: "comorbidity", title: "Autoimmune Comorbidity", desc: "Screen for thyroid disease (TSH)",
+    regions: ["thyroid"],
+    terms: [{ name: "endocrine gland", desc: "Hashimoto's / Graves' association — screen TSH" }]}
+];
+
+const diagnostic = { name: "histology", desc: "peribulbar lymphocytes on punch biopsy", regions: ["scalp", "eyebrows", "body-skin"] };
+
+const regionLabels = {
+  "scalp": "Scalp", "eyebrows": "Eyebrows", "eyelashes": "Eyelashes", "vibrissae": "Nasal Vibrissae",
+  "ears": "External Ear Canal", "lymph": "Cervical Lymph Nodes", "thyroid": "Thyroid Gland",
+  "axilla": "Axilla", "body-skin": "General Body Skin", "pubic": "Pubic / Groin"
+};
+
+const allTerms = [];
+symptomGroups.forEach(g => {
+  g.terms.forEach(t => allTerms.push({ ...t, groupId: g.id, groupTitle: g.title, regions: g.regions }));
+});
+allTerms.push({ ...diagnostic, groupId: "diagnostic", groupTitle: "Diagnostic Finding", regions: diagnostic.regions });
+
+// =================== TABS ===================
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// =================== STATE ===================
+let currentMode = "explore";
+let activeRegion = null;
+let activeTerm = null;
+
+// =================== INITIAL CHIPS ===================
+const allTermsContainer = document.getElementById('all-terms');
+allTerms.forEach(t => {
+  const chip = document.createElement('button');
+  chip.className = 'term-chip';
+  chip.dataset.term = t.name;
+  chip.textContent = t.name;
+  chip.addEventListener('click', () => selectTerm(t.name));
+  allTermsContainer.appendChild(chip);
+});
+
+// =================== CONTROLS ===================
+document.querySelectorAll('.mode-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMode = btn.dataset.mode;
+    renderInfo();
+  });
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  activeRegion = null;
+  activeTerm = null;
+  document.querySelectorAll('.body-region').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.term-chip').forEach(c => c.classList.remove('active'));
+  renderInfo();
+});
+
+document.querySelectorAll('.body-region').forEach(region => {
+  region.addEventListener('click', () => selectRegion(region.dataset.region));
+});
+
+// =================== HISTOLOGY PLATE TERMS → MODAL ===================
+document.querySelectorAll('.plate-term').forEach(el => {
+  el.addEventListener('click', () => showTermModal(el.dataset.term));
+});
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeModal();
+});
+
+function showTermModal(termName) {
+  const term = allTerms.find(t => t.name === termName);
+  if (!term) return;
+  const regionList = term.regions.map(r => regionLabels[r] || r).join(' · ');
+  document.getElementById('modal-content').innerHTML = `
+    <div class="info-meta">${term.groupTitle}</div>
+    <div class="info-header">${term.name}</div>
+    <div style="font-size: 16px; line-height: 1.5; margin-bottom: 16px;">${term.desc}</div>
+    <div class="info-meta">Affected Regions</div>
+    <div style="font-size: 15px; font-style: italic;">${regionList}</div>
+    <div style="margin-top: 20px; padding-top: 12px; border-top: 1px solid var(--rule); font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted);">
+      Switch to Plate I → click any term chip to see this on the body chart
+    </div>
+  `;
+  document.getElementById('modal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('active');
+}
+
+// =================== SELECTION ===================
+function selectRegion(regionName) {
+  activeRegion = regionName;
+  activeTerm = null;
+  document.querySelectorAll('.body-region').forEach(r => {
+    r.classList.toggle('active', r.dataset.region === regionName);
+  });
+  document.querySelectorAll('.term-chip').forEach(c => c.classList.remove('active'));
+  renderInfo();
+}
+
+function selectTerm(termName) {
+  activeTerm = termName;
+  activeRegion = null;
+  const term = allTerms.find(t => t.name === termName);
+  if (!term) return;
+  document.querySelectorAll('.body-region').forEach(r => {
+    r.classList.toggle('active', term.regions.includes(r.dataset.region));
+  });
+  document.querySelectorAll('.term-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.term === termName);
+  });
+  renderInfo();
+}
+
+// =================== RENDER ===================
+function renderInfo() {
+  const container = document.getElementById('info-content');
+
+  if (activeRegion) {
+    const groups = symptomGroups.filter(g => g.regions.includes(activeRegion));
+    let html = `<div class="info-header">${regionLabels[activeRegion]}</div>
+      <div class="info-meta">${groups.length} symptom group${groups.length !== 1 ? 's' : ''} · ${groups.reduce((s, g) => s + g.terms.length, 0)} terms</div>`;
+
+    groups.forEach(g => {
+      html += `<div style="margin-bottom: 20px;">
+        <div style="font-size: 18px; font-style: italic; margin-bottom: 4px;">${g.title}</div>
+        <div style="font-family: 'Courier New', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-bottom: 10px;">${g.desc}</div>
+        <div class="term-list">`;
+      g.terms.forEach(t => {
+        const descClass = currentMode === 'quiz' ? 'term-desc hidden' : 'term-desc';
+        html += `<div class="term-item" data-term="${t.name}">
+          <div class="term-name">${t.name}</div>
+          <div class="${descClass}">${t.desc}</div>
+        </div>`;
+      });
+      html += `</div></div>`;
+    });
+
+    if (currentMode === 'quiz') html = `<div class="quiz-prompt">Quiz mode · Click any term to reveal description</div>` + html;
+    container.innerHTML = html;
+
+    container.querySelectorAll('.term-item').forEach(item => {
+      item.addEventListener('click', () => {
+        if (currentMode === 'quiz') item.querySelector('.term-desc').classList.toggle('hidden');
+        const termName = item.dataset.term;
+        document.querySelectorAll('.term-chip').forEach(c => {
+          c.classList.toggle('active', c.dataset.term === termName);
+        });
+      });
+    });
+
+  } else if (activeTerm) {
+    const term = allTerms.find(t => t.name === activeTerm);
+    const regionList = term.regions.map(r => regionLabels[r]).join(' · ');
+    const descClass = currentMode === 'quiz' ? 'term-desc hidden' : 'term-desc';
+
+    let html = `<div class="info-header">${term.name}</div>
+      <div class="info-meta">${term.groupTitle}</div>
+      <div class="term-item active" id="term-detail">
+        <div class="term-name">${term.name}</div>
+        <div class="${descClass}">${term.desc}</div>
+      </div>
+      <div style="margin-top: 20px;">
+        <div class="info-meta">Affected Regions</div>
+        <div style="font-size: 16px; font-style: italic;">${regionList}</div>
+      </div>`;
+
+    if (currentMode === 'quiz') html = `<div class="quiz-prompt">Quiz mode · Click the term to reveal description</div>` + html;
+
+    html += `<div style="margin-top: 32px;">
+      <div class="info-meta">All 40 Terms</div>
+      <div class="all-terms" id="all-terms-rerender"></div>
+    </div>`;
+
+    container.innerHTML = html;
+
+    if (currentMode === 'quiz') {
+      document.getElementById('term-detail').addEventListener('click', () => {
+        document.getElementById('term-detail').querySelector('.term-desc').classList.toggle('hidden');
+      });
+    }
+
+    rebuildChips(activeTerm);
+
+  } else {
+    container.innerHTML = `<div class="empty-state">
+        Click any anatomical region on the figure<br>
+        or select a term below to see connections.
+      </div>
+      <div style="margin-top: 24px;">
+        <div class="info-meta">All 40 Terms · Click to highlight regions</div>
+        <div class="all-terms" id="all-terms-rerender"></div>
+      </div>`;
+    rebuildChips(null);
+  }
+}
+
+function rebuildChips(activeName) {
+  const c = document.getElementById('all-terms-rerender');
+  if (!c) return;
+  allTerms.forEach(t => {
+    const chip = document.createElement('button');
+    chip.className = 'term-chip' + (t.name === activeName ? ' active' : '');
+    chip.dataset.term = t.name;
+    chip.textContent = t.name;
+    chip.addEventListener('click', () => selectTerm(t.name));
+    c.appendChild(chip);
+  });
+}
+</script>
+
+</body>
+</html>

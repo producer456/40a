@@ -1,0 +1,235 @@
+{
+  "id": "at-totalis",
+  "title": "Alopecia Areata Totalis",
+  "subtitle": "An Anatomical Study · 40 Histological Terms in Clinical Context",
+  "course": "Bio 40A",
+  "bodyFigure": "male-anterior",
+  "diagnosticFinding": {
+    "name": "histology",
+    "desc": "peribulbar lymphocytes on punch biopsy",
+    "regions": ["scalp", "eyebrows", "body-skin"]
+  },
+  "regionLabels": {
+    "scalp": "Scalp",
+    "eyebrows": "Eyebrows",
+    "eyelashes": "Eyelashes",
+    "vibrissae": "Nasal Vibrissae",
+    "ears": "External Ear Canal",
+    "lymph": "Cervical Lymph Nodes",
+    "thyroid": "Thyroid Gland",
+    "axilla": "Axilla",
+    "body-skin": "General Body Skin",
+    "pubic": "Pubic / Groin"
+  },
+  "symptomGroups": [
+    {
+      "id": "hairloss",
+      "title": "Total Body Hair Loss",
+      "desc": "Scalp, brows, lashes, body, vibrissae all gone",
+      "regions": ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "axilla", "body-skin", "pubic"],
+      "terms": [
+        { "name": "ectoderm", "desc": "follicles are ectoderm-derived; the autoimmune target" },
+        { "name": "epithelial tissue", "desc": "follicle is epithelial; what T cells attack" },
+        { "name": "matrix", "desc": "bulb matrix cells directly killed" },
+        { "name": "apoptosis", "desc": "follicles forced into early catagen" },
+        { "name": "mesoderm", "desc": "papilla–follicle signaling disrupted" },
+        { "name": "atrophy", "desc": "miniaturization without scarring" }
+      ]
+    },
+    {
+      "id": "borders",
+      "title": "Active Patch Borders",
+      "desc": "Easy epilation; tapered \"exclamation point\" hairs",
+      "regions": ["scalp", "eyebrows", "body-skin"],
+      "terms": [
+        { "name": "basal lamina", "desc": "follicular immune privilege barrier breached" },
+        { "name": "basement membrane", "desc": "T cells cross BM to reach the bulb" },
+        { "name": "anchoring junction", "desc": "desmosomes weaken; hairs slip out" },
+        { "name": "apical", "desc": "polarity lost; hairs taper" },
+        { "name": "ground substance", "desc": "ECM permits immune cell migration" }
+      ]
+    },
+    {
+      "id": "inflammation",
+      "title": "Itch · Redness · Warmth · Tenderness",
+      "desc": "Active inflammation at affected sites",
+      "regions": ["scalp", "eyebrows", "axilla", "body-skin", "pubic"],
+      "terms": [
+        { "name": "inflammation", "desc": "peribulbar \"swarm of bees\" infiltrate" },
+        { "name": "histamine", "desc": "mast cell-driven itch" },
+        { "name": "vasodilation", "desc": "pink, warm patches" },
+        { "name": "endothelium", "desc": "adhesion molecules let T cells exit vessels" },
+        { "name": "fluid connective tissue", "desc": "blood delivers autoreactive T cells" },
+        { "name": "areolar tissue", "desc": "papillary dermis traps lymphocytes" },
+        { "name": "loose connective tissue", "desc": "perifollicular trafficking route" }
+      ]
+    },
+    {
+      "id": "preserved",
+      "title": "Smooth, Non-Scarring Skin",
+      "desc": "Structural preservation enables future regrowth",
+      "regions": ["scalp", "body-skin", "eyebrows"],
+      "terms": [
+        { "name": "collagen fiber", "desc": "perifollicular sheath intact" },
+        { "name": "elastic fiber", "desc": "dermal elasticity preserved" },
+        { "name": "reticular fiber", "desc": "follicle ostia still visible" },
+        { "name": "connective tissue", "desc": "dermis structurally intact" },
+        { "name": "dense connective tissue (irregular/regular)", "desc": "no fibrotic replacement" }
+      ]
+    },
+    {
+      "id": "regrowth",
+      "title": "Poor-Quality / White Regrowth",
+      "desc": "Fine vellus hairs, often depigmented",
+      "regions": ["scalp", "eyebrows", "body-skin"],
+      "terms": [
+        { "name": "gap junction", "desc": "matrix–papilla signaling impaired → white hairs" },
+        { "name": "tight junction", "desc": "IRS breakdown → brittle hairs" },
+        { "name": "fibroblast", "desc": "papilla fibroblasts lose signaling" },
+        { "name": "adipocytes", "desc": "stem cell signaling lost; regrowth delayed" },
+        { "name": "adipose tissue", "desc": "hair-cycle adipose rhythm disrupted" }
+      ]
+    },
+    {
+      "id": "function",
+      "title": "Lost Protective / Sensory Function",
+      "desc": "Hair-dependent functions degraded body-wide",
+      "regions": ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "body-skin"],
+      "terms": [
+        { "name": "cutaneous membrane", "desc": "barrier and insulation reduced" },
+        { "name": "stratified squamous epithelium", "desc": "outer root sheath continuity gone" },
+        { "name": "neuron", "desc": "peri-follicular mechanoreceptors lose targets" },
+        { "name": "nervous tissue", "desc": "diminished light-touch detection" },
+        { "name": "smooth muscle", "desc": "arrector pili idle; no goosebumps" }
+      ]
+    },
+    {
+      "id": "secretions",
+      "title": "Altered Secretions & Thermoregulation",
+      "desc": "Pilosebaceous unit dysfunction body-wide",
+      "regions": ["scalp", "axilla", "pubic", "body-skin"],
+      "terms": [
+        { "name": "merocrine secretion", "desc": "visible sweating; no hair to trap moisture" },
+        { "name": "holocrine secretion", "desc": "drier scalp/skin (sebum drop)" },
+        { "name": "apocrine secretion", "desc": "reduced body odor production" },
+        { "name": "exocrine gland", "desc": "pilosebaceous unit dysfunction" }
+      ]
+    },
+    {
+      "id": "lymph",
+      "title": "Tender Lymph Nodes (Flares)",
+      "desc": "Regional drainage basins palpable",
+      "regions": ["lymph", "axilla"],
+      "terms": [
+        { "name": "reticular tissue", "desc": "lymph node stroma primes autoreactive T cells" }
+      ]
+    },
+    {
+      "id": "comorbidity",
+      "title": "Autoimmune Comorbidity",
+      "desc": "Screen for thyroid disease (TSH)",
+      "regions": ["thyroid"],
+      "terms": [
+        { "name": "endocrine gland", "desc": "Hashimoto's / Graves' association — screen TSH" }
+      ]
+    }
+  ],
+  "histologyPlates": [
+    {
+      "id": "hair-follicle",
+      "number": "II.A",
+      "title": "Hair Follicle & Pilosebaceous Unit",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gray944.png",
+      "imageAlt": "Cross-section of skin showing hair follicle, sebaceous gland, and arrector pili muscle",
+      "fallbackText": "commons.wikimedia.org/wiki/File:Gray944.png",
+      "caption": "The autoimmune target itself. The bulb (matrix), papilla, inner and outer root sheaths, and surrounding glands form the pilosebaceous unit. CD8⁺ T cells breach the basal lamina to attack matrix cells. Note the arrector pili (smooth muscle) and sebaceous gland (holocrine) attached to the follicle.",
+      "attribution": "Henry Vandyke Carter, Gray's Anatomy (1918), Plate 944. Public domain.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gray944.png",
+      "terms": [
+        "ectoderm",
+        "epithelial tissue",
+        "matrix",
+        "mesoderm",
+        "basal lamina",
+        "basement membrane",
+        "anchoring junction",
+        "apical",
+        "stratified squamous epithelium",
+        "cutaneous membrane",
+        "exocrine gland",
+        "holocrine secretion",
+        "apocrine secretion",
+        "merocrine secretion",
+        "smooth muscle",
+        "neuron",
+        "nervous tissue",
+        "adipose tissue",
+        "adipocytes"
+      ]
+    },
+    {
+      "id": "skin-layers",
+      "number": "II.B",
+      "title": "Vertical Section of Skin (Magnified)",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gray940.png",
+      "imageAlt": "Vertical section of skin showing epidermis, dermis, and underlying connective tissue",
+      "fallbackText": "commons.wikimedia.org/wiki/File:Gray940.png",
+      "caption": "The cutaneous membrane in vertical section. Stratified squamous epithelium of the epidermis sits on the basement membrane; the dermis below contains areolar and dense connective tissue, with collagen, elastic, and reticular fibers in ground substance. Endothelium-lined vessels deliver immune cells.",
+      "attribution": "Henry Vandyke Carter, Gray's Anatomy (1918). Public domain.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gray940.png",
+      "terms": [
+        "cutaneous membrane",
+        "stratified squamous epithelium",
+        "basement membrane",
+        "basal lamina",
+        "connective tissue",
+        "dense connective tissue (irregular/regular)",
+        "areolar tissue",
+        "loose connective tissue",
+        "collagen fiber",
+        "elastic fiber",
+        "reticular fiber",
+        "ground substance",
+        "fibroblast",
+        "endothelium",
+        "fluid connective tissue",
+        "adipose tissue"
+      ]
+    },
+    {
+      "id": "lymph-node",
+      "number": "II.C",
+      "title": "Lymph Node — Reticular Architecture",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gray598.png",
+      "imageAlt": "Diagram of a lymph node showing cortex, medulla, and reticular structure",
+      "fallbackText": "commons.wikimedia.org/wiki/File:Gray598.png",
+      "caption": "Where autoreactive T cells are primed before trafficking to the follicle. The node's reticular tissue (a network of reticular fibers) supports germinal centers in the cortex; tender posterior cervical, occipital, axillary, and inguinal nodes during AT flares reflect activity here.",
+      "attribution": "Henry Vandyke Carter, Gray's Anatomy (1918). Public domain.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gray598.png",
+      "terms": [
+        "reticular tissue",
+        "reticular fiber",
+        "connective tissue",
+        "endothelium",
+        "fluid connective tissue"
+      ]
+    },
+    {
+      "id": "thyroid",
+      "number": "II.D",
+      "title": "Thyroid Gland — Anterior View",
+      "imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gray1174.png",
+      "imageAlt": "Anterior view of the thyroid gland showing lobes and isthmus",
+      "fallbackText": "commons.wikimedia.org/wiki/File:Gray1174.png",
+      "caption": "Strong autoimmune comorbidity with AT — Hashimoto's thyroiditis and Graves' disease co-occur in 8–28% of cases. Clinical workup for AT routinely screens TSH. The thyroid is an endocrine gland (ductless, secreting directly into blood), distinguishing it from the exocrine glands of the pilosebaceous unit.",
+      "attribution": "Henry Vandyke Carter, Gray's Anatomy (1918). Public domain.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gray1174.png",
+      "terms": [
+        "endocrine gland",
+        "connective tissue",
+        "endothelium",
+        "fluid connective tissue"
+      ]
+    }
+  ]
+}

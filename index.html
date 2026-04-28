@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bio 40A Disease Study</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+<header>
+  <h1>Disease Study</h1>
+  <div class="subtitle">Anatomical Study Charts · Pick a Disease to Begin</div>
+</header>
+
+<main class="disease-list" id="disease-list">
+  <div class="panel">
+    <div class="panel__content">
+      <div class="panel__label">Loading…</div>
+    </div>
+  </div>
+</main>
+
+<div class="footer-note">D. Sheffield · Bio 40A · Public Domain Plates from Gray's Anatomy (1918)</div>
+
+<script type="module">
+  import { loadDiseaseIndex } from './js/data/loader.js';
+
+  const container = document.getElementById('disease-list');
+
+  loadDiseaseIndex()
+    .then(({ diseases }) => {
+      container.innerHTML = diseases.map(d => `
+        <a class="disease-card" href="study.html?disease=${encodeURIComponent(d.id)}">
+          <div class="panel">
+            <div class="panel__content">
+              <div class="disease-card__subtitle">${d.tissueDomain ?? ''}</div>
+              <div class="disease-card__title">${d.title}</div>
+              <div class="disease-card__meta">${d.subtitle ?? ''} · ${d.termCount ?? '?'} terms</div>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    })
+    .catch(err => {
+      container.innerHTML = `
+        <div class="panel">
+          <div class="panel__content">
+            <div class="panel__label">Error</div>
+            <div style="font-style: italic;">${err.message}</div>
+          </div>
+        </div>`;
+    });
+</script>
+
+</body>
+</html>

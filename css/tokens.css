@@ -1,0 +1,22 @@
+:root {
+  --bg: #f4f1ea;
+  --paper: #ebe5d6;
+  --ink: #2a2520;
+  --rule: #8a7d6a;
+  --accent: #b03a2e;
+  --accent-soft: #d97757;
+  --highlight: rgba(176, 58, 46, 0.18);
+  --muted: #6b5d4a;
+  --shadow: rgba(42, 37, 32, 0.12);
+
+  --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
+  --font-mono: 'Courier New', monospace;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+
+  --max-width: 1400px;
+}
