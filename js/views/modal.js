@@ -39,13 +39,23 @@ export function showTermModal(termName) {
   if (!term) return;
 
   const regionList = term.regions.map(r => disease.regionLabels[r] ?? r).join(' · ');
+  const definitionBlock = term.definition
+    ? `<div class="info-panel__meta">Definition</div>
+       <div class="modal__definition">${escapeHtml(term.definition)}</div>`
+    : '';
+  const symptomBlock = term.symptom
+    ? `<div class="info-panel__meta">Patient Experience</div>
+       <div class="modal__symptom">${escapeHtml(term.symptom)}</div>`
+    : '';
   contentEl.innerHTML = `
     <div class="info-panel__meta">${escapeHtml(term.groupTitle)}</div>
     <div class="info-panel__header">${escapeHtml(term.name)}</div>
+    ${definitionBlock}
+    <div class="info-panel__meta">In this disease</div>
     <div class="modal__desc">${escapeHtml(term.desc)}</div>
+    ${symptomBlock}
     <div class="info-panel__meta">Affected Regions</div>
     <div class="modal__regions">${escapeHtml(regionList)}</div>
-    <div class="modal__hint">Switch to Plate I → click any term chip to see this on the body chart</div>
   `;
   overlayEl.classList.add('modal-overlay--active');
 }

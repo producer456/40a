@@ -7,7 +7,16 @@ export function mountBodyChart(mountEl, disease) {
 
   mountEl.querySelectorAll('.body-region').forEach(el => {
     el.addEventListener('click', () => {
-      state.set({ activeRegion: el.dataset.region, activeTerm: null });
+      // Resetting expandedGroups so each region opens collapsed —
+      // user gets symptoms first, then taps to dive into anatomy.
+      // Clearing previousRegion so the term view back-button doesn't
+      // point at a stale region after a fresh body-chart click.
+      state.set({
+        activeRegion: el.dataset.region,
+        activeTerm: null,
+        previousRegion: null,
+        expandedGroups: new Set()
+      });
     });
   });
 

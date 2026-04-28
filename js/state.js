@@ -3,8 +3,13 @@ const initial = () => ({
   mode: 'explore',
   activeRegion: null,
   activeTerm: null,
+  // Where the user was before drilling into a single term — lets the
+  // info panel show a back button that returns them to the same
+  // expanded region view, instead of needing to re-tap the body chart.
+  previousRegion: null,
   activeTab: 'body',
-  revealedTerms: new Set()
+  revealedTerms: new Set(),
+  expandedGroups: new Set()
 });
 
 let current = initial();

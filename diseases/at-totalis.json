@@ -28,12 +28,12 @@
       "desc": "Scalp, brows, lashes, body, vibrissae all gone",
       "regions": ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "axilla", "body-skin", "pubic"],
       "terms": [
-        { "name": "ectoderm", "desc": "follicles are ectoderm-derived; the autoimmune target" },
-        { "name": "epithelial tissue", "desc": "follicle is epithelial; what T cells attack" },
-        { "name": "matrix", "desc": "bulb matrix cells directly killed" },
-        { "name": "apoptosis", "desc": "follicles forced into early catagen" },
-        { "name": "mesoderm", "desc": "papilla–follicle signaling disrupted" },
-        { "name": "atrophy", "desc": "miniaturization without scarring" }
+        { "name": "ectoderm", "definition": "The outermost of the three primary germ layers in the early embryo; gives rise to the skin, hair, nails, and the nervous system.", "desc": "follicles are ectoderm-derived; the autoimmune target", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." },
+        { "name": "epithelial tissue", "definition": "A type of body tissue made of tightly packed cells that lines surfaces and cavities, including the outer skin, the inside of the digestive tract, and the lining of glands.", "desc": "follicle is epithelial; what T cells attack", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." },
+        { "name": "matrix", "definition": "In histology, the actively dividing cells at the base of a hair follicle (the bulb) that produce the hair shaft. More broadly, \"matrix\" also refers to the non-cellular material surrounding cells in any connective tissue.", "desc": "bulb matrix cells directly killed", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." },
+        { "name": "apoptosis", "definition": "Programmed cell death — a controlled, energy-requiring process by which a cell self-destructs without harming neighboring cells.", "desc": "follicles forced into early catagen", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." },
+        { "name": "mesoderm", "definition": "The middle of the three primary germ layers in the early embryo; gives rise to muscle, bone, blood, and connective tissue including the dermis of the skin.", "desc": "papilla–follicle signaling disrupted", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." },
+        { "name": "atrophy", "definition": "A decrease in the size of a cell, tissue, or organ from a previously normal state — often due to disuse, reduced nutrient supply, or loss of signaling.", "desc": "miniaturization without scarring", "symptom": "Hair sheds in clumps over days to weeks — handfuls in the shower, on the pillow — until the scalp, brows, lashes, and body hair are completely gone." }
       ]
     },
     {
@@ -42,11 +42,11 @@
       "desc": "Easy epilation; tapered \"exclamation point\" hairs",
       "regions": ["scalp", "eyebrows", "body-skin"],
       "terms": [
-        { "name": "basal lamina", "desc": "follicular immune privilege barrier breached" },
-        { "name": "basement membrane", "desc": "T cells cross BM to reach the bulb" },
-        { "name": "anchoring junction", "desc": "desmosomes weaken; hairs slip out" },
-        { "name": "apical", "desc": "polarity lost; hairs taper" },
-        { "name": "ground substance", "desc": "ECM permits immune cell migration" }
+        { "name": "basal lamina", "definition": "A thin sheet of extracellular matrix produced by epithelial cells, sitting just beneath them and separating epithelium from underlying connective tissue.", "desc": "follicular immune privilege barrier breached", "symptom": "Hair around the bald spots pulls out painlessly with a light tug; short, broken stubble rings the edges where new patches are still spreading." },
+        { "name": "basement membrane", "definition": "A specialized layer at the boundary between an epithelium and its connective tissue, made of the basal lamina plus an underlying reticular layer of collagen fibers.", "desc": "T cells cross BM to reach the bulb", "symptom": "Hair around the bald spots pulls out painlessly with a light tug; short, broken stubble rings the edges where new patches are still spreading." },
+        { "name": "anchoring junction", "definition": "A type of cell junction (such as a desmosome or adherens junction) that mechanically links neighboring cells together so tissues can resist pulling forces.", "desc": "desmosomes weaken; hairs slip out", "symptom": "Hair around the bald spots pulls out painlessly with a light tug; short, broken stubble rings the edges where new patches are still spreading." },
+        { "name": "apical", "definition": "The surface of an epithelial cell that faces the outside world or a hollow space (lumen), opposite the basal surface that sits on the basement membrane.", "desc": "polarity lost; hairs taper", "symptom": "Hair around the bald spots pulls out painlessly with a light tug; short, broken stubble rings the edges where new patches are still spreading." },
+        { "name": "ground substance", "definition": "The clear, gel-like material in the extracellular matrix of connective tissue that fills the space between cells and fibers; made of water, proteoglycans, and glycoproteins.", "desc": "ECM permits immune cell migration", "symptom": "Hair around the bald spots pulls out painlessly with a light tug; short, broken stubble rings the edges where new patches are still spreading." }
       ]
     },
     {
@@ -55,13 +55,13 @@
       "desc": "Active inflammation at affected sites",
       "regions": ["scalp", "eyebrows", "axilla", "body-skin", "pubic"],
       "terms": [
-        { "name": "inflammation", "desc": "peribulbar \"swarm of bees\" infiltrate" },
-        { "name": "histamine", "desc": "mast cell-driven itch" },
-        { "name": "vasodilation", "desc": "pink, warm patches" },
-        { "name": "endothelium", "desc": "adhesion molecules let T cells exit vessels" },
-        { "name": "fluid connective tissue", "desc": "blood delivers autoreactive T cells" },
-        { "name": "areolar tissue", "desc": "papillary dermis traps lymphocytes" },
-        { "name": "loose connective tissue", "desc": "perifollicular trafficking route" }
+        { "name": "inflammation", "definition": "The body's protective response to injury or infection, marked by redness, heat, swelling, pain, and sometimes loss of function as immune cells flood the affected area.", "desc": "peribulbar \"swarm of bees\" infiltrate", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "histamine", "definition": "A chemical signal released mainly by mast cells that triggers itching, redness, swelling, and increased blood-vessel leakiness during allergic and inflammatory responses.", "desc": "mast cell-driven itch", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "vasodilation", "definition": "The widening of blood vessels caused by relaxation of the smooth muscle in their walls, increasing blood flow and producing redness and warmth.", "desc": "pink, warm patches", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "endothelium", "definition": "The single layer of flat epithelial cells lining the inside of all blood vessels and the heart, regulating what passes between blood and surrounding tissue.", "desc": "adhesion molecules let T cells exit vessels", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "fluid connective tissue", "definition": "Connective tissue with a liquid extracellular matrix — namely blood and lymph — that carries cells and substances throughout the body.", "desc": "blood delivers autoreactive T cells", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "areolar tissue", "definition": "A loose connective tissue with a soft, jelly-like ground substance and loosely arranged collagen and elastic fibers; cushions and supports nearby structures.", "desc": "papillary dermis traps lymphocytes", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." },
+        { "name": "loose connective tissue", "definition": "A broad category of connective tissues with widely spaced fibers and abundant ground substance — includes areolar, adipose, and reticular tissue; cushions, insulates, and surrounds organs and vessels.", "desc": "perifollicular trafficking route", "symptom": "The bald spots itch, look pink, feel warm, and are sore to the touch." }
       ]
     },
     {
@@ -70,11 +70,11 @@
       "desc": "Structural preservation enables future regrowth",
       "regions": ["scalp", "body-skin", "eyebrows"],
       "terms": [
-        { "name": "collagen fiber", "desc": "perifollicular sheath intact" },
-        { "name": "elastic fiber", "desc": "dermal elasticity preserved" },
-        { "name": "reticular fiber", "desc": "follicle ostia still visible" },
-        { "name": "connective tissue", "desc": "dermis structurally intact" },
-        { "name": "dense connective tissue (irregular/regular)", "desc": "no fibrotic replacement" }
+        { "name": "collagen fiber", "definition": "A strong, rope-like protein fiber found throughout connective tissue that gives tissues their tensile strength and resists stretching.", "desc": "perifollicular sheath intact", "symptom": "The bald skin stays smooth and unmarked — no bumps, no scars, no pitting — looking just like ordinary skin without hair." },
+        { "name": "elastic fiber", "definition": "A protein fiber made mostly of elastin that allows tissues to stretch and recoil to their original shape; abundant in skin, lungs, and large arteries.", "desc": "dermal elasticity preserved", "symptom": "The bald skin stays smooth and unmarked — no bumps, no scars, no pitting — looking just like ordinary skin without hair." },
+        { "name": "reticular fiber", "definition": "A thin, branching collagen fiber that forms a delicate supporting network in soft organs like the liver, spleen, and lymph nodes.", "desc": "follicle ostia still visible", "symptom": "The bald skin stays smooth and unmarked — no bumps, no scars, no pitting — looking just like ordinary skin without hair." },
+        { "name": "connective tissue", "definition": "A diverse category of body tissue characterized by widely spaced cells embedded in an extracellular matrix; binds, supports, protects, and stores energy.", "desc": "dermis structurally intact", "symptom": "The bald skin stays smooth and unmarked — no bumps, no scars, no pitting — looking just like ordinary skin without hair." },
+        { "name": "dense connective tissue (irregular/regular)", "definition": "Connective tissue packed with closely arranged collagen fibers; \"regular\" types (like tendons) have parallel fibers for one-direction strength, while \"irregular\" types (like the dermis) have woven fibers for multi-direction strength.", "desc": "no fibrotic replacement", "symptom": "The bald skin stays smooth and unmarked — no bumps, no scars, no pitting — looking just like ordinary skin without hair." }
       ]
     },
     {
@@ -83,11 +83,11 @@
       "desc": "Fine vellus hairs, often depigmented",
       "regions": ["scalp", "eyebrows", "body-skin"],
       "terms": [
-        { "name": "gap junction", "desc": "matrix–papilla signaling impaired → white hairs" },
-        { "name": "tight junction", "desc": "IRS breakdown → brittle hairs" },
-        { "name": "fibroblast", "desc": "papilla fibroblasts lose signaling" },
-        { "name": "adipocytes", "desc": "stem cell signaling lost; regrowth delayed" },
-        { "name": "adipose tissue", "desc": "hair-cycle adipose rhythm disrupted" }
+        { "name": "gap junction", "definition": "A type of cell junction containing protein channels that directly connect the cytoplasm of two neighboring cells, allowing ions and small molecules to pass between them for rapid signaling.", "desc": "matrix–papilla signaling impaired → white hairs", "symptom": "When hair grows back, it comes in as fine, fuzzy peach-colored or white strands instead of normal pigmented hair — and it often falls out again." },
+        { "name": "tight junction", "definition": "A type of cell junction that seals adjacent epithelial cells together to prevent fluids and molecules from leaking between them, creating a barrier.", "desc": "IRS breakdown → brittle hairs", "symptom": "When hair grows back, it comes in as fine, fuzzy peach-colored or white strands instead of normal pigmented hair — and it often falls out again." },
+        { "name": "fibroblast", "definition": "The most common cell in connective tissue; secretes the proteins (collagen, elastin) and ground substance that make up the extracellular matrix.", "desc": "papilla fibroblasts lose signaling", "symptom": "When hair grows back, it comes in as fine, fuzzy peach-colored or white strands instead of normal pigmented hair — and it often falls out again." },
+        { "name": "adipocytes", "definition": "Specialized connective tissue cells that store energy as fat in a single large lipid droplet, also providing insulation and cushioning.", "desc": "stem cell signaling lost; regrowth delayed", "symptom": "When hair grows back, it comes in as fine, fuzzy peach-colored or white strands instead of normal pigmented hair — and it often falls out again." },
+        { "name": "adipose tissue", "definition": "Connective tissue dominated by adipocytes (fat cells); stores energy, insulates the body, cushions organs, and produces hormones.", "desc": "hair-cycle adipose rhythm disrupted", "symptom": "When hair grows back, it comes in as fine, fuzzy peach-colored or white strands instead of normal pigmented hair — and it often falls out again." }
       ]
     },
     {
@@ -96,11 +96,11 @@
       "desc": "Hair-dependent functions degraded body-wide",
       "regions": ["scalp", "eyebrows", "eyelashes", "vibrissae", "ears", "body-skin"],
       "terms": [
-        { "name": "cutaneous membrane", "desc": "barrier and insulation reduced" },
-        { "name": "stratified squamous epithelium", "desc": "outer root sheath continuity gone" },
-        { "name": "neuron", "desc": "peri-follicular mechanoreceptors lose targets" },
-        { "name": "nervous tissue", "desc": "diminished light-touch detection" },
-        { "name": "smooth muscle", "desc": "arrector pili idle; no goosebumps" }
+        { "name": "cutaneous membrane", "definition": "Another name for the skin — the largest organ of the body, composed of an epidermis (epithelium) sitting on a dermis (connective tissue).", "desc": "barrier and insulation reduced", "symptom": "Without hair, the scalp sunburns easily, sweat drips into the eyes without brows to catch it, dust irritates the eyes without lashes, the ears feel cold, and goosebumps no longer appear." },
+        { "name": "stratified squamous epithelium", "definition": "Epithelial tissue made of multiple layers of flat cells; found wherever surfaces face mechanical wear, such as the skin, mouth, and esophagus.", "desc": "outer root sheath continuity gone", "symptom": "Without hair, the scalp sunburns easily, sweat drips into the eyes without brows to catch it, dust irritates the eyes without lashes, the ears feel cold, and goosebumps no longer appear." },
+        { "name": "neuron", "definition": "An excitable cell of the nervous system that transmits information by generating and propagating electrical signals along its membrane.", "desc": "peri-follicular mechanoreceptors lose targets", "symptom": "Without hair, the scalp sunburns easily, sweat drips into the eyes without brows to catch it, dust irritates the eyes without lashes, the ears feel cold, and goosebumps no longer appear." },
+        { "name": "nervous tissue", "definition": "Body tissue made of neurons and supporting glial cells; specialized to receive, process, and transmit electrical signals throughout the body.", "desc": "diminished light-touch detection", "symptom": "Without hair, the scalp sunburns easily, sweat drips into the eyes without brows to catch it, dust irritates the eyes without lashes, the ears feel cold, and goosebumps no longer appear." },
+        { "name": "smooth muscle", "definition": "Involuntary, non-striated muscle tissue found in the walls of hollow organs and blood vessels, producing slow, sustained contractions.", "desc": "arrector pili idle; no goosebumps", "symptom": "Without hair, the scalp sunburns easily, sweat drips into the eyes without brows to catch it, dust irritates the eyes without lashes, the ears feel cold, and goosebumps no longer appear." }
       ]
     },
     {
@@ -109,10 +109,10 @@
       "desc": "Pilosebaceous unit dysfunction body-wide",
       "regions": ["scalp", "axilla", "pubic", "body-skin"],
       "terms": [
-        { "name": "merocrine secretion", "desc": "visible sweating; no hair to trap moisture" },
-        { "name": "holocrine secretion", "desc": "drier scalp/skin (sebum drop)" },
-        { "name": "apocrine secretion", "desc": "reduced body odor production" },
-        { "name": "exocrine gland", "desc": "pilosebaceous unit dysfunction" }
+        { "name": "merocrine secretion", "definition": "A mode of glandular secretion in which the cell releases its product (usually by exocytosis) without losing any cytoplasm — the most common method, used by sweat glands and salivary glands.", "desc": "visible sweating; no hair to trap moisture", "symptom": "Skin and scalp feel drier than before, sweat shows more visibly without hair to absorb it, and body odor is noticeably reduced." },
+        { "name": "holocrine secretion", "definition": "A mode of glandular secretion in which the entire cell ruptures and dies to release its contents — used by sebaceous (oil) glands.", "desc": "drier scalp/skin (sebum drop)", "symptom": "Skin and scalp feel drier than before, sweat shows more visibly without hair to absorb it, and body odor is noticeably reduced." },
+        { "name": "apocrine secretion", "definition": "A mode of glandular secretion in which the apical (top) portion of the cell pinches off and is released along with the product — used by certain sweat glands and mammary glands.", "desc": "reduced body odor production", "symptom": "Skin and scalp feel drier than before, sweat shows more visibly without hair to absorb it, and body odor is noticeably reduced." },
+        { "name": "exocrine gland", "definition": "A gland that releases its secretion through a duct onto an epithelial surface — examples include sweat, salivary, and sebaceous glands.", "desc": "pilosebaceous unit dysfunction", "symptom": "Skin and scalp feel drier than before, sweat shows more visibly without hair to absorb it, and body odor is noticeably reduced." }
       ]
     },
     {
@@ -121,7 +121,7 @@
       "desc": "Regional drainage basins palpable",
       "regions": ["lymph", "axilla"],
       "terms": [
-        { "name": "reticular tissue", "desc": "lymph node stroma primes autoreactive T cells" }
+        { "name": "reticular tissue", "definition": "A loose connective tissue made up of a delicate network of reticular fibers, forming the supportive framework (stroma) of lymph nodes, spleen, and bone marrow.", "desc": "lymph node stroma primes autoreactive T cells", "symptom": "During flares, swollen, tender lumps can be felt at the back of the neck, in the armpits, or in the groin." }
       ]
     },
     {
@@ -130,7 +130,7 @@
       "desc": "Screen for thyroid disease (TSH)",
       "regions": ["thyroid"],
       "terms": [
-        { "name": "endocrine gland", "desc": "Hashimoto's / Graves' association — screen TSH" }
+        { "name": "endocrine gland", "definition": "A ductless gland that releases its hormones directly into the bloodstream rather than onto a surface — examples include the thyroid, adrenals, and pituitary.", "desc": "Hashimoto's / Graves' association — screen TSH", "symptom": "May also experience fatigue, cold intolerance, weight changes, or a racing heart from a co-existing thyroid problem." }
       ]
     }
   ],

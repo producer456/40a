@@ -439,9 +439,189 @@
   margin-bottom: var(--space-lg);
 }
 
+.modal__symptom {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 2px solid var(--rule);
+  background: rgba(0, 0, 0, 0.02);
+}
+
 .modal__regions {
   font-size: 15px;
   font-style: italic;
+}
+
+.symptom-group__patient {
+  font-size: 13px;
+  line-height: 1.45;
+  margin: 6px 0 12px;
+  padding: 8px 10px;
+  border-left: 2px solid var(--rule);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.symptom-group__patient-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+/* Collapsible symptom groups in the region-active info panel */
+.symptom-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 4px 0;
+}
+
+.symptom-group__chevron {
+  font-size: 12px;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+.symptom-group__symptom {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 6px 0 4px;
+  color: var(--text);
+}
+
+.symptom-group--expanded .symptom-group__symptom {
+  margin-bottom: 12px;
+}
+
+/* Modal — definition block */
+.modal__definition {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+
+/* Back button on the single-term info-panel view */
+.info-panel__back {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin-bottom: var(--space-md);
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+.info-panel__back:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+/* Glossary tab */
+.glossary {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.glossary__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.glossary__title {
+  font-family: var(--font-serif, serif);
+  font-size: 22px;
+}
+
+.glossary__search {
+  flex: 1;
+  max-width: 320px;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--bg, #fff);
+  font-family: inherit;
+}
+
+.glossary__count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+
+.glossary__list {
+  display: grid;
+  gap: 10px;
+}
+
+.glossary__item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 12px 14px;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+}
+
+.glossary__item:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: var(--muted);
+}
+
+.glossary__name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.glossary__field {
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.glossary__field-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
+.glossary__group {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule);
 }
 
 .modal__hint {

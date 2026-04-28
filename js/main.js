@@ -6,6 +6,7 @@ import { mountControls } from './views/controls.js';
 import { mountBodyChart } from './views/body-chart.js';
 import { mountInfoPanel } from './views/info-panel.js';
 import { mountHistology } from './views/histology.js';
+import { mountGlossary } from './views/glossary.js';
 import { mountModal } from './views/modal.js';
 
 const params = new URLSearchParams(location.search);
@@ -27,6 +28,7 @@ loadDisease(id).then(disease => {
   mountBodyChart(document.getElementById('body-chart'), disease);
   mountInfoPanel(document.getElementById('info-panel'), disease);
   mountHistology(document.getElementById('histology'), disease);
+  mountGlossary(document.getElementById('glossary'), disease);
   mountModal(document.getElementById('modal-root'));
 
   state.subscribe(({ revealedTerms }) => {
