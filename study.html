@@ -16,53 +16,49 @@
   <div class="subtitle" id="disease-subtitle"></div>
 </header>
 
+<div class="tabs">
+  <button class="tab" data-tab="body">Plate I — Body Chart</button>
+  <button class="tab" data-tab="histology">Plate II — Histology</button>
+</div>
+
 <main id="study-root">
-  <div class="panel" style="max-width: 700px; margin: 0 auto;">
-    <div class="panel__content">
-      <div class="panel__label">Scaffold checkpoint</div>
-      <p style="font-style: italic; line-height: 1.5; margin-top: 8px;">
-        Disease data loaded successfully. Body chart, info panel, and histology
-        views are ported in the next pass — see <code>js/views/*</code>.
-      </p>
-      <div id="data-summary" style="margin-top: 16px;"></div>
+
+  <section class="tab-panel" id="panel-body">
+    <div class="layout">
+      <div class="panel figure-panel">
+        <div class="panel__content">
+          <div class="panel__label">Fig. 1 — Regions of Involvement</div>
+          <div id="body-chart"></div>
+          <div class="legend">
+            <div class="legend__item"><span class="legend__swatch legend__swatch--region"></span>REGION</div>
+            <div class="legend__item"><span class="legend__swatch legend__swatch--hover"></span>HOVER</div>
+            <div class="legend__item"><span class="legend__swatch legend__swatch--active"></span>SELECTED</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="controls"></div>
+        <div class="panel info-panel">
+          <div class="panel__content" id="info-panel"></div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <section class="tab-panel" id="panel-histology">
+    <div id="histology"></div>
+  </section>
+
 </main>
 
-<div class="footer-note">D. Sheffield · Bio 40A · <a href="index.html" style="color: var(--muted);">Back to Disease Index</a></div>
+<div id="modal-root"></div>
 
-<script type="module">
-  import { loadDisease } from './js/data/loader.js';
-  import { state } from './js/state.js';
+<div class="footer-note">
+  D. Sheffield · Bio 40A · <a href="index.html" style="color: var(--muted);">Disease Index</a> · Public Domain Plates from Gray's Anatomy (1918)
+</div>
 
-  const params = new URLSearchParams(location.search);
-  const id = params.get('disease') ?? 'at-totalis';
-
-  loadDisease(id).then(disease => {
-    state.set({ disease });
-    document.getElementById('disease-title').textContent = disease.title;
-    document.getElementById('disease-subtitle').textContent = disease.subtitle;
-    document.title = `${disease.title} — Bio 40A`;
-    const summary = document.getElementById('data-summary');
-    summary.innerHTML = `
-      <div class="panel__label">Loaded</div>
-      <div style="font-family: var(--font-mono); font-size: 11px; line-height: 1.7; color: var(--muted);">
-        ${disease.symptomGroups.length} symptom groups ·
-        ${disease.allTerms.length} terms ·
-        ${disease.histologyPlates.length} histology plates ·
-        ${Object.keys(disease.regionLabels).length} body regions
-      </div>`;
-  }).catch(err => {
-    document.getElementById('disease-title').textContent = 'Error';
-    document.getElementById('study-root').innerHTML = `
-      <div class="panel" style="max-width: 700px; margin: 0 auto;">
-        <div class="panel__content">
-          <div class="panel__label">Failed to load disease "${id}"</div>
-          <pre style="font-family: var(--font-mono); font-size: 11px; white-space: pre-wrap; margin-top: 8px;">${err.message}</pre>
-        </div>
-      </div>`;
-  });
-</script>
+<script type="module" src="js/main.js"></script>
 
 </body>
 </html>

@@ -24,8 +24,7 @@ export const state = {
   },
 
   reset() {
-    const disease = current.disease;
-    current = { ...initial(), disease };
+    current = { ...current, activeRegion: null, activeTerm: null };
     listeners.forEach(fn => fn(current));
   }
 };
