@@ -8,6 +8,8 @@
   --highlight: rgba(176, 58, 46, 0.18);
   --muted: #6b5d4a;
   --shadow: rgba(42, 37, 32, 0.12);
+  --success: #4a6a3e;
+  --success-soft: rgba(74, 106, 62, 0.18);
 
   --font-serif: 'Cormorant Garamond', 'EB Garamond', Georgia, serif;
   --font-mono: 'Courier New', monospace;

@@ -405,8 +405,8 @@
   line-height: 1.5;
   margin-bottom: var(--space-lg);
   padding: var(--space-sm) var(--space-md);
-  border-left: 2px solid var(--rule);
-  background: rgba(0, 0, 0, 0.02);
+  border-left: 2px solid var(--accent);
+  background: var(--bg);
 }
 
 .modal__regions {
@@ -417,35 +417,44 @@
 /* Collapsible symptom groups in the region-active info panel */
 .symptom-group__header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   cursor: pointer;
   user-select: none;
-  padding: 4px 0;
+  padding: var(--space-xs) 0;
+  transition: color 0.15s ease;
 }
 
+.symptom-group__header:hover .symptom-group__title { color: var(--accent); }
+
 .symptom-group__chevron {
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   color: var(--muted);
-  margin-left: 8px;
+  margin-left: var(--space-sm);
 }
 
 .symptom-group__symptom {
   font-size: 15px;
-  line-height: 1.5;
-  margin: 6px 0 4px;
-  color: var(--text);
+  line-height: 1.55;
+  margin: var(--space-xs) 0 var(--space-xs);
+  color: var(--ink);
 }
 
 .symptom-group--expanded .symptom-group__symptom {
-  margin-bottom: 12px;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px dotted var(--rule);
 }
 
 /* Modal — definition block */
 .modal__definition {
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.55;
   margin-bottom: var(--space-lg);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 2px solid var(--rule);
+  background: var(--bg);
 }
 
 /* Back button on the single-term info-panel view */
@@ -453,57 +462,71 @@
   display: inline-block;
   background: transparent;
   border: 1px solid var(--rule);
-  border-radius: 4px;
-  padding: 6px 10px;
+  border-radius: 2px;
+  padding: var(--space-xs) var(--space-md);
   margin-bottom: var(--space-md);
-  font-family: inherit;
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   color: var(--muted);
   cursor: pointer;
-  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .info-panel__back:hover {
-  background: rgba(0, 0, 0, 0.04);
-  color: var(--text);
-  border-color: var(--muted);
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 
 /* Glossary tab */
 .glossary {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   padding: var(--space-lg);
 }
 
 .glossary__header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--rule);
 }
 
 .glossary__title {
-  font-family: var(--font-serif, serif);
-  font-size: 22px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--ink);
 }
 
 .glossary__search {
   flex: 1;
   max-width: 320px;
-  padding: 8px 12px;
-  font-size: 14px;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.5px;
   border: 1px solid var(--rule);
-  border-radius: 4px;
-  background: var(--bg, #fff);
-  font-family: inherit;
+  border-radius: 2px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.glossary__search:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--paper);
 }
 
 .glossary__count {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
   margin-bottom: var(--space-md);
@@ -511,58 +534,61 @@
 
 .glossary__list {
   display: grid;
-  gap: 10px;
+  gap: var(--space-md);
 }
 
 .glossary__item {
   display: block;
   width: 100%;
   text-align: left;
-  background: transparent;
+  background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 12px 14px;
+  border-radius: 2px;
+  padding: var(--space-md) var(--space-lg);
   cursor: pointer;
-  font: inherit;
-  color: inherit;
-  transition: background-color 0.1s ease, border-color 0.1s ease;
+  font-family: inherit;
+  color: var(--ink);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .glossary__item:hover {
-  background: rgba(0, 0, 0, 0.03);
-  border-color: var(--muted);
+  border-color: var(--accent);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 
 .glossary__name {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 6px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--ink);
+  margin-bottom: var(--space-sm);
 }
 
 .glossary__field {
-  font-size: 13px;
-  line-height: 1.45;
-  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: var(--space-sm);
+  color: var(--ink);
 }
 
 .glossary__field-label {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
-  margin-right: 6px;
+  margin-right: var(--space-sm);
 }
 
 .glossary__group {
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
-  margin-top: 8px;
-  padding-top: 8px;
+  margin-top: var(--space-md);
+  padding-top: var(--space-sm);
   border-top: 1px dashed var(--rule);
 }
 
@@ -575,49 +601,60 @@
 
 .quiz__header {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--rule);
 }
 
 .quiz__title {
-  font-family: var(--font-serif, serif);
-  font-size: 22px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  color: var(--ink);
 }
 
 .quiz__score {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 1px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
 }
 
 .quiz__card {
+  background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 8px;
-  padding: var(--space-lg);
-  background: rgba(0, 0, 0, 0.015);
+  border-radius: 2px;
+  padding: var(--space-xl);
 }
 
 .quiz__prompt-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: var(--space-sm);
 }
 
 .quiz__prompt {
-  font-size: 16px;
+  font-family: var(--font-serif);
+  font-size: 20px;
   line-height: 1.5;
   margin-bottom: var(--space-lg);
+  color: var(--ink);
+}
+
+.quiz__prompt strong {
+  font-style: italic;
+  color: var(--accent);
 }
 
 .quiz__choices {
   display: grid;
-  gap: 8px;
+  gap: var(--space-sm);
   margin-bottom: var(--space-md);
 }
 
@@ -625,90 +662,99 @@
   display: block;
   width: 100%;
   text-align: left;
-  background: var(--bg, #fff);
+  background: var(--bg);
   border: 1px solid var(--rule);
-  border-radius: 6px;
-  padding: 12px 14px;
-  font: inherit;
-  color: inherit;
+  border-radius: 2px;
+  padding: var(--space-md) var(--space-lg);
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink);
   cursor: pointer;
-  transition: background-color 0.1s ease, border-color 0.1s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .quiz__choice:hover:not(:disabled) {
-  background: rgba(0, 0, 0, 0.04);
-  border-color: var(--muted);
+  border-color: var(--accent);
+  box-shadow: 0 1px 4px var(--shadow);
 }
 
 .quiz__choice:disabled {
   cursor: default;
-  opacity: 0.7;
 }
 
 .quiz__choice--correct {
-  background: rgba(60, 160, 80, 0.18) !important;
-  border-color: rgb(60, 160, 80) !important;
-  opacity: 1 !important;
+  background: var(--success-soft) !important;
+  border-color: var(--success) !important;
+  border-left-width: 3px;
 }
 
 .quiz__choice--wrong {
-  background: rgba(200, 60, 60, 0.18) !important;
-  border-color: rgb(200, 60, 60) !important;
-  opacity: 1 !important;
+  background: var(--highlight) !important;
+  border-color: var(--accent) !important;
+  border-left-width: 3px;
 }
 
 .quiz__feedback {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
   padding-top: var(--space-md);
   border-top: 1px dashed var(--rule);
 }
 
 .quiz__verdict {
-  font-size: 16px;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   margin-bottom: var(--space-md);
 }
 
-.quiz__verdict--right { color: rgb(40, 130, 60); }
-.quiz__verdict--wrong { color: rgb(180, 50, 50); }
+.quiz__verdict--right { color: var(--success); }
+.quiz__verdict--wrong { color: var(--accent); }
 
 .quiz__field {
-  font-size: 13px;
-  line-height: 1.45;
-  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: var(--space-sm);
+  color: var(--ink);
 }
 
 .quiz__field-label {
   display: inline-block;
   font-family: var(--font-mono);
   font-size: 9px;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   color: var(--muted);
   text-transform: uppercase;
-  margin-right: 6px;
+  margin-right: var(--space-sm);
 }
 
 .quiz__next {
   display: block;
-  margin: var(--space-md) auto 0;
-  padding: 10px 18px;
-  font: inherit;
-  font-size: 14px;
-  background: var(--accent, #2a3038);
-  color: #fff;
-  border: 0;
-  border-radius: 6px;
+  margin: var(--space-lg) auto 0;
+  padding: var(--space-sm) var(--space-xl);
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .quiz__next:hover {
-  background: var(--accent-hover, #1a2028);
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .quiz__empty {
   font-size: 14px;
   color: var(--muted);
   text-align: center;
-  padding: var(--space-lg);
+  padding: var(--space-xl);
+  font-style: italic;
 }
 
