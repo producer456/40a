@@ -43,7 +43,7 @@ export function mountQuiz(mountEl, disease) {
   mountEl.innerHTML = `
     <div class="quiz">
       <div class="quiz__header">
-        <div class="quiz__title">Quiz Yourself</div>
+        <div class="quiz__title">Multiple Choice Quiz</div>
         <div class="quiz__score" data-score>0 / 0</div>
       </div>
       <div class="quiz__card" data-card></div>
