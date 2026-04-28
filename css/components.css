@@ -104,33 +104,6 @@
   padding: 6px 0;
 }
 
-/* Term chips */
-
-.term-chip {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.5px;
-  padding: 6px 10px;
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  cursor: pointer;
-  transition: all 0.15s ease;
-  text-align: left;
-  color: var(--ink);
-}
-
-.term-chip:hover {
-  background: var(--accent-soft);
-  color: var(--paper);
-  border-color: var(--accent);
-}
-
-.term-chip--active {
-  background: var(--accent);
-  color: var(--paper);
-  border-color: var(--accent);
-}
-
 /* Disease index page */
 
 .disease-list {
@@ -374,18 +347,6 @@
   color: var(--rule);
 }
 
-/* All-terms grid */
-
-.all-terms {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-}
-
-@media (max-width: 600px) {
-  .all-terms { grid-template-columns: 1fr; }
-}
-
 /* Modal */
 
 .modal-overlay {
@@ -451,25 +412,6 @@
 .modal__regions {
   font-size: 15px;
   font-style: italic;
-}
-
-.symptom-group__patient {
-  font-size: 13px;
-  line-height: 1.45;
-  margin: 6px 0 12px;
-  padding: 8px 10px;
-  border-left: 2px solid var(--rule);
-  background: rgba(0, 0, 0, 0.02);
-}
-
-.symptom-group__patient-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 1px;
-  color: var(--muted);
-  margin-bottom: 4px;
-  text-transform: uppercase;
 }
 
 /* Collapsible symptom groups in the region-active info panel */
@@ -624,12 +566,3 @@
   border-top: 1px dashed var(--rule);
 }
 
-.modal__hint {
-  margin-top: 20px;
-  padding-top: var(--space-md);
-  border-top: 1px solid var(--rule);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 1px;
-  color: var(--muted);
-}
