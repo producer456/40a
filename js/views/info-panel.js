@@ -1,4 +1,5 @@
 import { state } from '../state.js';
+import { renderRelevantPlates } from './modal.js';
 
 const escapeHtml = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -82,6 +83,7 @@ export function mountInfoPanel(mountEl, disease) {
           <div class="info-panel__meta">Affected Regions</div>
           <div class="info-panel__regions">${escapeHtml(regionList)}</div>
         </div>`;
+        html += renderRelevantPlates(disease, term.name);
       }
     } else {
       html += `<div class="empty-state">
@@ -134,6 +136,16 @@ export function mountInfoPanel(mountEl, disease) {
           activeTerm: null,
           previousRegion: null
         });
+      });
+    });
+
+    // Inline plate thumbnails — swap in the fallback if the image
+    // fails to load (matches the histology-tab error handling).
+    mountEl.querySelectorAll('.term-plate__image').forEach(img => {
+      img.addEventListener('error', () => {
+        img.style.display = 'none';
+        const fb = img.nextElementSibling;
+        if (fb) fb.style.display = 'block';
       });
     });
   };

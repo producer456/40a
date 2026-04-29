@@ -119,3 +119,72 @@
 }
 
 .plate__attribution a { color: var(--muted); }
+
+/* Inline plate thumbnail used by the term modal + single-term info
+   panel — keeps the underlying anatomy visible without forcing a
+   tab switch.  Smaller and lighter than the .plate cards on the
+   dedicated histology tab. */
+.term-plates {
+  display: grid;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.term-plate {
+  margin: 0;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  padding: var(--space-sm);
+}
+
+.term-plate__frame {
+  background: #fff;
+  border: 1px solid var(--ink);
+  padding: var(--space-xs);
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.term-plate__image {
+  max-width: 100%;
+  max-height: 280px;
+  height: auto;
+  display: block;
+}
+
+.term-plate__fallback {
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+  font-style: italic;
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.term-plate__caption {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  padding: 0 var(--space-xs);
+}
+
+.term-plate__number {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.term-plate__title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink);
+}
