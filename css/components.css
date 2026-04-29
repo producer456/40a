@@ -66,7 +66,7 @@
 
 .btn--active {
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-on);
   border-color: var(--accent);
 }
 
@@ -145,8 +145,8 @@
 .body { width: 100%; height: auto; display: block; overflow: visible; }
 
 .body-region {
-  fill: #e5e7eb;
-  stroke: var(--ink);
+  fill: var(--paper);
+  stroke: var(--rule-strong);
   stroke-width: 0.8;
   cursor: pointer;
   transition: fill 0.15s ease;
@@ -185,7 +185,7 @@
   display: inline-block;
   border-radius: 2px;
 }
-.legend__swatch--region { background: #e5e7eb; }
+.legend__swatch--region { background: var(--paper); }
 .legend__swatch--hover  { background: var(--accent-soft); }
 .legend__swatch--active { background: var(--accent); }
 
@@ -662,17 +662,17 @@
   margin: var(--space-lg) auto 0;
   padding: 10px 24px;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-on);
   border: 0;
   border-radius: var(--radius-sm);
   font-family: inherit;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: filter 0.15s ease;
 }
 
-.quiz__next:hover { background: #1d4ed8; }
+.quiz__next:hover { filter: brightness(1.1); }
 
 .quiz__empty {
   font-size: 15px;

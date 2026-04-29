@@ -1,6 +1,7 @@
-// Multiple-choice quiz built from the disease's terms.  Two question
-// types randomly mixed: definition → name, and patient symptom → name.
-// Distractors are pulled at random from the other terms in the disease.
+// Multiple-choice quiz built from the disease's terms.  Standard
+// "What is X?" shape: the term name is the question, four definitions
+// are the choices.  Each session deals a fresh shuffled deck so every
+// term shows up exactly once and the quiz has a clear end state.
 
 const escapeHtml = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -15,60 +16,78 @@ function shuffle(arr) {
   return out;
 }
 
-function buildQuestion(allTerms) {
-  // Standard MCQ shape: ask "What is X?" with 4 definitions as
-  // choices.  Need terms that have a definition (for the right
-  // answer) AND at least 3 other terms with definitions (for the
-  // distractors).
-  const pool = allTerms.filter(t => t.definition);
-  if (pool.length < 4) return null;
-
-  const correct = pool[Math.floor(Math.random() * pool.length)];
+function buildChoices(correct, pool) {
   const distractors = shuffle(pool.filter(t => t.name !== correct.name)).slice(0, 3);
-  const choices = shuffle([correct, ...distractors]);
-
-  return {
-    prompt: correct.name,
-    correctName: correct.name,
-    correct,
-    choices
-  };
+  return shuffle([correct, ...distractors]);
 }
 
 export function mountQuiz(mountEl, disease) {
-  let q = null;
+  // Pool of quizzable terms (need a definition for both the right
+  // answer text AND for distractors).  Defines the deck size.
+  const pool = disease.allTerms.filter(t => t.definition);
+
+  let deck = [];
+  let idx = 0;
   let answered = false;
-  let score = { right: 0, asked: 0 };
+  let score = 0;
 
   mountEl.innerHTML = `
     <div class="quiz">
       <div class="quiz__header">
         <div class="quiz__title">Multiple Choice Quiz</div>
-        <div class="quiz__score" data-score>0 / 0</div>
+        <div class="quiz__score" data-score></div>
       </div>
       <div class="quiz__card" data-card></div>
-      <button class="quiz__next" data-next style="display:none">Next Question →</button>
     </div>
   `;
 
   const cardEl  = mountEl.querySelector('[data-card]');
-  const nextEl  = mountEl.querySelector('[data-next]');
   const scoreEl = mountEl.querySelector('[data-score]');
 
+  const updateScoreDisplay = () => {
+    if (idx >= deck.length) {
+      scoreEl.textContent = `Final: ${score} / ${deck.length}`;
+    } else {
+      // Show "X of N" rather than "X/N" to read more naturally.
+      scoreEl.textContent = `Question ${idx + 1} of ${deck.length} — Score ${score}`;
+    }
+  };
+
+  const startNewQuiz = () => {
+    deck = shuffle(pool);
+    idx = 0;
+    score = 0;
+    renderQuestion();
+  };
+
   const renderQuestion = () => {
-    answered = false;
-    q = buildQuestion(disease.allTerms);
-    if (!q) {
-      cardEl.innerHTML = `<div class="quiz__empty">No quizzable terms in this disease yet — need definitions or patient experiences populated.</div>`;
-      nextEl.style.display = 'none';
+    if (pool.length < 4) {
+      cardEl.innerHTML = `<div class="quiz__empty">No quizzable terms in this disease yet — need at least 4 terms with definitions populated.</div>`;
+      scoreEl.textContent = '';
       return;
     }
 
+    if (idx >= deck.length) {
+      const pct = Math.round((score / deck.length) * 100);
+      cardEl.innerHTML = `
+        <div class="quiz__verdict quiz__verdict--right" style="text-align:center">Quiz complete</div>
+        <div class="quiz__prompt" style="text-align:center">You scored <strong>${score}</strong> out of <strong>${deck.length}</strong> (${pct}%).</div>
+        <button class="quiz__next" data-restart>Start a new quiz →</button>
+      `;
+      cardEl.querySelector('[data-restart]').addEventListener('click', startNewQuiz);
+      updateScoreDisplay();
+      return;
+    }
+
+    answered = false;
+    const correct = deck[idx];
+    const choices = buildChoices(correct, pool);
+
     cardEl.innerHTML = `
-      <div class="quiz__prompt-label">Question</div>
-      <div class="quiz__prompt">Which of the following best describes <strong>${escapeHtml(q.prompt)}</strong>?</div>
+      <div class="quiz__prompt-label">Question ${idx + 1} of ${deck.length}</div>
+      <div class="quiz__prompt">Which of the following best describes <strong>${escapeHtml(correct.name)}</strong>?</div>
       <div class="quiz__choices">
-        ${q.choices.map(c => `
+        ${choices.map(c => `
           <button class="quiz__choice" data-choice="${escapeHtml(c.name)}">
             ${escapeHtml(c.definition)}
           </button>
@@ -76,41 +95,42 @@ export function mountQuiz(mountEl, disease) {
       </div>
       <div class="quiz__feedback" data-feedback></div>
     `;
-    nextEl.style.display = 'none';
+    updateScoreDisplay();
 
     cardEl.querySelectorAll('.quiz__choice').forEach(btn => {
-      btn.addEventListener('click', () => handleAnswer(btn.dataset.choice));
+      btn.addEventListener('click', () => handleAnswer(btn.dataset.choice, correct));
     });
   };
 
-  const handleAnswer = (chosenName) => {
+  const handleAnswer = (chosenName, correct) => {
     if (answered) return;
     answered = true;
-    score.asked++;
-    const isRight = chosenName === q.correctName;
-    if (isRight) score.right++;
-    scoreEl.textContent = `${score.right} / ${score.asked}`;
+    const isRight = chosenName === correct.name;
+    if (isRight) score++;
+    updateScoreDisplay();
 
     cardEl.querySelectorAll('.quiz__choice').forEach(btn => {
       btn.disabled = true;
       const name = btn.dataset.choice;
-      if (name === q.correctName) btn.classList.add('quiz__choice--correct');
+      if (name === correct.name) btn.classList.add('quiz__choice--correct');
       else if (name === chosenName) btn.classList.add('quiz__choice--wrong');
     });
 
     const fb = cardEl.querySelector('[data-feedback]');
-    const t = q.correct;
     fb.innerHTML = `
       <div class="quiz__verdict ${isRight ? 'quiz__verdict--right' : 'quiz__verdict--wrong'}">
-        ${isRight ? '✓ Correct' : `✗ The answer is ${escapeHtml(q.correctName)}`}
+        ${isRight ? '✓ Correct' : `✗ The answer is ${escapeHtml(correct.name)}`}
       </div>
-      ${t.definition ? `<div class="quiz__field"><span class="quiz__field-label">Definition</span>${escapeHtml(t.definition)}</div>` : ''}
-      <div class="quiz__field"><span class="quiz__field-label">In this disease</span>${escapeHtml(t.desc)}</div>
-      ${t.symptom ? `<div class="quiz__field"><span class="quiz__field-label">Patient Experience</span>${escapeHtml(t.symptom)}</div>` : ''}
+      ${correct.definition ? `<div class="quiz__field"><span class="quiz__field-label">Definition</span>${escapeHtml(correct.definition)}</div>` : ''}
+      <div class="quiz__field"><span class="quiz__field-label">In this disease</span>${escapeHtml(correct.desc)}</div>
+      ${correct.symptom ? `<div class="quiz__field"><span class="quiz__field-label">Patient Experience</span>${escapeHtml(correct.symptom)}</div>` : ''}
+      <button class="quiz__next" data-next>${idx + 1 >= deck.length ? 'See results →' : 'Next question →'}</button>
     `;
-    nextEl.style.display = '';
+    fb.querySelector('[data-next]').addEventListener('click', () => {
+      idx++;
+      renderQuestion();
+    });
   };
 
-  nextEl.addEventListener('click', renderQuestion);
-  renderQuestion();
+  startNewQuiz();
 }

@@ -17,6 +17,7 @@
   /* Accents — one calm slate-blue for focus/active/hover, two
      status colors for quiz feedback */
   --accent: #2563eb;
+  --accent-on: #ffffff;
   --accent-soft: #dbeafe;
   --highlight: rgba(37, 99, 235, 0.08);
   --success: #047857;
@@ -42,4 +43,36 @@
   --radius-sm: 4px;
   --max-width: 1200px;
   --read-width: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Deep neutral surfaces — not pure black, less eye strain */
+    --bg: #18181b;
+    --paper: #27272a;
+    --bg-soft: #1f1f23;
+
+    /* Text — off-white for body, lighter grays for secondary */
+    --ink: #f4f4f5;
+    --ink-soft: #e4e4e7;
+    --muted: #a1a1aa;
+    --muted-soft: #71717a;
+
+    /* Borders — subtle but visible against the dark surfaces */
+    --rule: #2e2e33;
+    --rule-strong: #3f3f46;
+
+    /* Brighter accent so it pops on dark */
+    --accent: #60a5fa;
+    --accent-on: #0a0a0c;
+    --accent-soft: rgba(96, 165, 250, 0.18);
+    --highlight: rgba(96, 165, 250, 0.10);
+    --success: #34d399;
+    --success-soft: rgba(52, 211, 153, 0.16);
+    --error: #f87171;
+    --error-soft: rgba(248, 113, 113, 0.18);
+
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
 }
